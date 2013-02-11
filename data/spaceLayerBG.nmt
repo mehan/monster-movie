@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<animata version="0.004">
+    <layer name="BGlayer" x="0.000000" y="0.000000" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+        <layer name="spaceBG1" x="-922.010559" y="413.784332" z="0.000000" alpha="0.618000" scale="1.050000" vis="1">
+            <texture location="forbidden-planet-iii.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="1502.160034" y="298.658783" u="-0.032403" v="-0.030171" selected="1" />
+                    <vertex x="1484.471680" y="872.466248" u="-0.032403" v="1.063314" selected="1" />
+                    <vertex x="2737.924561" y="917.346069" u="1.028714" v="1.075200" selected="1" />
+                    <vertex x="2731.240967" y="324.058502" u="1.007597" v="-0.053943" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="1" v2="3" />
+                    <face v0="1" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="1489.190430" y="645.102539" fixed="0" selected="0" osc="0" />
+                    <joint x="2726.719971" y="645.073853" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.500000" lm="1.019340" lmmin="0.820000" lmmax="1.430000" tempo="0.025000" time="904.424927" size="1214.257324" selected="1" radius="7.700000">
+                        <attached>
+                            <vertex id="0" d="697.870728" w="0.850719" ca="605.805664" sa="346.443451" />
+                            <vertex id="1" d="663.667175" w="0.858036" ca="623.506165" sa="-227.363617" />
+                            <vertex id="2" d="686.267456" w="0.853201" ca="-629.945007" sa="-272.272491" />
+                            <vertex id="3" d="701.086365" w="0.850031" ca="-623.274658" sa="321.015259" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="spaceBG2" x="1039.340942" y="-573.130005" z="0.000000" alpha="0.809000" scale="2.259998" vis="1">
+            <texture location="forbidden-planet-iii.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-540.587036" y="405.899902" u="-0.032403" v="-0.030171" selected="1" />
+                    <vertex x="-558.270691" y="979.707458" u="-0.032403" v="1.063314" selected="1" />
+                    <vertex x="695.181519" y="1024.580322" u="1.028714" v="1.075200" selected="1" />
+                    <vertex x="688.494019" y="431.292755" u="1.007597" v="-0.053943" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="1" v2="3" />
+                    <face v0="1" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="-587.703491" y="752.344666" fixed="0" selected="0" osc="0" />
+                    <joint x="718.171509" y="752.307129" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.291843" lm="1.075329" lmmin="1.040000" lmmax="1.270000" tempo="0.025000" time="896.119263" size="1214.257324" selected="1" radius="7.700000">
+                        <attached>
+                            <vertex id="0" d="697.870728" w="0.850719" ca="605.805664" sa="346.443451" />
+                            <vertex id="1" d="663.667175" w="0.858036" ca="623.506165" sa="-227.363617" />
+                            <vertex id="2" d="686.267456" w="0.853201" ca="-629.945007" sa="-272.272491" />
+                            <vertex id="3" d="701.086365" w="0.850031" ca="-623.274658" sa="321.015259" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="spaceBG3" x="177.555695" y="-184.014847" z="0.000000" alpha="0.853000" scale="1.470000" vis="1">
+            <texture location="forbidden-planet-iii.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-933.635559" y="473.586182" u="-0.032403" v="-0.030171" selected="1" />
+                    <vertex x="-951.322815" y="1047.393677" u="-0.032403" v="1.063314" selected="1" />
+                    <vertex x="302.129517" y="1092.273315" u="1.028714" v="1.075200" selected="1" />
+                    <vertex x="295.445374" y="498.985687" u="1.007597" v="-0.053943" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="1" v2="3" />
+                    <face v0="1" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="-967.388367" y="820.030396" fixed="0" selected="0" osc="0" />
+                    <joint x="311.739288" y="820.000549" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.500000" lm="1.053450" lmmin="0.830000" lmmax="1.060000" tempo="0.029000" time="1000.258118" size="1214.257324" selected="1" radius="7.700000">
+                        <attached>
+                            <vertex id="0" d="697.870728" w="0.850719" ca="605.805664" sa="346.443451" />
+                            <vertex id="1" d="663.667175" w="0.858036" ca="623.506165" sa="-227.363617" />
+                            <vertex id="2" d="686.267456" w="0.853201" ca="-629.945007" sa="-272.272491" />
+                            <vertex id="3" d="701.086365" w="0.850031" ca="-623.274658" sa="321.015259" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="spaceBG4" x="361.710938" y="36.658649" z="0.000000" alpha="0.922000" scale="1.259999" vis="1">
+            <texture location="forbidden-planet-iii.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-389.925079" y="453.674683" u="-0.032403" v="-0.030171" selected="1" />
+                    <vertex x="-407.640137" y="1027.481323" u="-0.032403" v="1.063314" selected="1" />
+                    <vertex x="845.809814" y="1072.422363" u="1.028714" v="1.075200" selected="1" />
+                    <vertex x="839.154602" y="479.134399" u="1.007597" v="-0.053943" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="1" v2="3" />
+                    <face v0="1" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="207.543518" y="800.133423" fixed="0" selected="0" osc="0" />
+                    <joint x="224.206573" y="800.133850" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.500000" lm="0.013691" lmmin="0.010000" lmmax="2.000000" tempo="0.015000" time="651.794312" size="1214.257324" selected="1" radius="7.700000">
+                        <attached>
+                            <vertex id="0" d="697.870728" w="0.850719" ca="605.805664" sa="346.443451" />
+                            <vertex id="1" d="663.667175" w="0.858036" ca="623.506165" sa="-227.363617" />
+                            <vertex id="2" d="686.267456" w="0.853201" ca="-629.945007" sa="-272.272491" />
+                            <vertex id="3" d="701.086365" w="0.850031" ca="-623.274658" sa="321.015259" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="spaceBG5" x="905.577393" y="-310.272583" z="-68.000000" alpha="1.000000" scale="1.510008" vis="1">
+            <texture location="forbidden-planet-iii.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-904.685425" y="522.864502" u="-0.032403" v="-0.030171" selected="1" />
+                    <vertex x="-922.383667" y="1096.671631" u="-0.032403" v="1.063314" selected="1" />
+                    <vertex x="331.066406" y="1141.579468" u="1.028714" v="1.075200" selected="1" />
+                    <vertex x="324.394775" y="548.291748" u="1.007597" v="-0.053943" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="1" v2="3" />
+                    <face v0="1" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="-558.008911" y="869.307678" fixed="0" selected="0" osc="0" />
+                    <joint x="-39.686829" y="869.307251" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.500000" lm="0.426567" lmmin="0.010000" lmmax="2.000000" tempo="0.015000" time="650.930054" size="1214.257324" selected="1" radius="7.700000">
+                        <attached>
+                            <vertex id="0" d="697.870728" w="0.850719" ca="605.805664" sa="346.443451" />
+                            <vertex id="1" d="663.667175" w="0.858036" ca="623.506165" sa="-227.363617" />
+                            <vertex id="2" d="686.267456" w="0.853201" ca="-629.945007" sa="-272.272491" />
+                            <vertex id="3" d="701.086365" w="0.850031" ca="-623.274658" sa="321.015259" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+    </layer>
+</animata>

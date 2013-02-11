@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<animata version="0.004">
+    <layer name="SpaceBG" x="-531.000305" y="369.733307" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+        <texture location="forbidden-planet-iii.png" x="0.000000" y="0.000000" scale="1.000000" />
+        <mesh>
+            <vertices>
+                <vertex x="-107.138008" y="75.278488" u="0.004935" v="0.157460" selected="1" />
+                <vertex x="-112.038834" y="511.850800" u="0.004935" v="0.989080" selected="1" />
+                <vertex x="1052.022095" y="536.719727" u="0.989933" v="1.011556" selected="1" />
+                <vertex x="1051.043457" y="-76.930588" u="0.983277" v="-0.157206" selected="1" />
+                <vertex x="532.900269" y="310.800049" u="0.450846" v="0.592000" selected="0" />
+                <vertex x="312.633667" y="27.600052" u="0.264495" v="0.052572" selected="0" />
+                <vertex x="273.300293" y="373.733429" u="0.231219" v="0.711873" selected="0" />
+                <vertex x="788.566956" y="358.000061" u="0.667146" v="0.681905" selected="0" />
+                <vertex x="521.100281" y="440.600098" u="0.440863" v="0.839238" selected="0" />
+            </vertices>
+            <faces>
+                <face v0="3" v1="4" v2="5" />
+                <face v0="6" v1="0" v2="5" />
+                <face v0="3" v1="4" v2="7" />
+                <face v0="4" v1="5" v2="6" />
+                <face v0="2" v1="3" v2="7" />
+                <face v0="0" v1="1" v2="6" />
+                <face v0="4" v1="8" v2="7" />
+                <face v0="4" v1="8" v2="6" />
+                <face v0="2" v1="7" v2="8" />
+                <face v0="8" v1="6" v2="1" />
+                <face v0="1" v1="2" v2="8" />
+            </faces>
+        </mesh>
+        <skeleton>
+            <joints>
+                <joint x="-80.694801" y="255.927597" fixed="1" selected="0" osc="0" />
+                <joint name="spaceBG" x="1028.357056" y="241.611221" fixed="0" selected="1" osc="0" />
+            </joints>
+            <bones>
+                <bone j0="1" j1="0" stiffness="0.500000" lm="0.972233" lmmin="0.750000" lmmax="1.130000" tempo="0.034000" time="194.949219" size="1140.998779" selected="0" radius="0.070000">
+                    <attached>
+                        <vertex id="0" d="598.102722" w="0.010000" ca="570.065552" sa="180.975418" />
+                        <vertex id="1" d="634.331604" w="0.010000" ca="580.601074" sa="-255.497482" />
+                        <vertex id="2" d="653.599487" w="0.010000" ca="-583.041809" sa="-295.388763" />
+                        <vertex id="3" d="670.333313" w="0.010000" ca="-589.984070" sa="318.222473" />
+                    </attached>
+                </bone>
+            </bones>
+        </skeleton>
+    </layer>
+</animata>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/original/AnimataP5.jar"/>
+	<classpathentry kind="lib" path="lib/original/core.jar"/>
+	<classpathentry kind="lib" path="lib/original/jl1.0.jar"/>
+	<classpathentry kind="lib" path="lib/original/jsminim.jar"/>
+	<classpathentry kind="lib" path="lib/original/minim-spi.jar"/>
+	<classpathentry kind="lib" path="lib/original/minim.jar"/>
+	<classpathentry kind="lib" path="lib/original/mp3spi1.9.4.jar"/>
+	<classpathentry kind="lib" path="lib/original/mpe.jar"/>
+	<classpathentry kind="lib" path="lib/original/oscP5.jar"/>
+	<classpathentry kind="lib" path="lib/original/tritonus_aos.jar"/>
+	<classpathentry kind="lib" path="lib/original/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="lib/original/opengl/gluegen-rt.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="TonyMehan/lib/original/opengl/macosx"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/original/opengl/jogl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="TonyMehan/lib/original/opengl/macosx"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/original/opengl/opengl.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

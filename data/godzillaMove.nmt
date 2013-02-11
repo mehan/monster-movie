@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<animata version="0.004">
+    <layer name="manygodzillas" x="0.000000" y="0.000000" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+        <mesh>
+            <vertices>
+                <vertex x="-215.313995" y="1260.031006" u="0.000000" v="0.000000" selected="0" />
+            </vertices>
+        </mesh>
+        <layer name="manygodzillasA" x="-690.604736" y="-595.349060" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+            <texture location="Gozilla1.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-356.616486" y="-22.630194" u="0.003387" v="-0.024782" selected="1" />
+                    <vertex x="-408.169922" y="1084.720825" u="-0.055246" v="1.033869" selected="1" />
+                    <vertex x="556.295898" y="1076.744019" u="1.040737" v="1.026280" selected="1" />
+                    <vertex x="528.471985" y="-18.696711" u="1.009166" v="-0.020988" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="3" v2="2" />
+                    <face v0="0" v1="1" v2="2" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="-4.957397" y="557.519592" fixed="1" selected="0" osc="0" />
+                    <joint x="131.712433" y="556.268188" fixed="0" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="0" j1="1" stiffness="0.500000" lm="0.154949" lmmin="0.060000" lmmax="1.760000" tempo="0.093000" time="751.934265" size="877.183289" selected="1" radius="10.000000">
+                        <attached>
+                            <vertex id="0" d="715.754517" w="0.836806" ca="-414.744171" sa="-583.345337" />
+                            <vertex id="1" d="707.833069" w="0.838612" ca="-476.433441" sa="523.487183" />
+                            <vertex id="2" d="716.338318" w="0.836673" ca="488.064026" sa="524.341553" />
+                            <vertex id="3" d="739.962952" w="0.831287" ca="470.268219" sa="-571.308105" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="manygodzillasB" x="-690.604736" y="-595.349060" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+            <texture location="Gozilla1.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-385.954437" y="-22.364283" u="0.003387" v="-0.024782" selected="1" />
+                    <vertex x="-437.514130" y="1084.986328" u="-0.055246" v="1.033869" selected="1" />
+                    <vertex x="526.950195" y="1077.016479" u="1.040737" v="1.026280" selected="1" />
+                    <vertex x="499.129395" y="-18.424572" u="1.009166" v="-0.020988" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="3" v2="2" />
+                    <face v0="0" v1="1" v2="2" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="-4.957397" y="557.519592" fixed="1" selected="0" osc="0" />
+                    <joint x="73.258781" y="556.803955" fixed="0" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="0" j1="1" stiffness="0.500000" lm="0.089654" lmmin="0.060000" lmmax="1.760000" tempo="0.093000" time="721.260437" size="877.183289" selected="1" radius="10.000000">
+                        <attached>
+                            <vertex id="0" d="715.754517" w="0.836806" ca="-414.744171" sa="-583.345337" />
+                            <vertex id="1" d="707.833069" w="0.838612" ca="-476.433441" sa="523.487183" />
+                            <vertex id="2" d="716.338318" w="0.836673" ca="488.064026" sa="524.341553" />
+                            <vertex id="3" d="739.962952" w="0.831287" ca="470.268219" sa="-571.308105" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="manygodzillasC" x="-690.604736" y="-595.349060" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+            <texture location="Gozilla1.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-179.581757" y="-24.251211" u="0.003387" v="-0.024782" selected="1" />
+                    <vertex x="-231.135590" y="1083.099854" u="-0.055246" v="1.033869" selected="1" />
+                    <vertex x="733.331360" y="1075.122681" u="1.040737" v="1.026280" selected="1" />
+                    <vertex x="705.509705" y="-20.318159" u="1.009166" v="-0.020988" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="3" v2="2" />
+                    <face v0="0" v1="1" v2="2" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="-4.957397" y="557.519592" fixed="1" selected="0" osc="0" />
+                    <joint x="485.639130" y="553.027222" fixed="0" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="0" j1="1" stiffness="0.500000" lm="0.557608" lmmin="0.060000" lmmax="1.760000" tempo="0.093000" time="707.285828" size="877.183289" selected="1" radius="10.000000">
+                        <attached>
+                            <vertex id="0" d="715.754517" w="0.836806" ca="-414.744171" sa="-583.345337" />
+                            <vertex id="1" d="707.833069" w="0.838612" ca="-476.433441" sa="523.487183" />
+                            <vertex id="2" d="716.338318" w="0.836673" ca="488.064026" sa="524.341553" />
+                            <vertex id="3" d="739.962952" w="0.831287" ca="470.268219" sa="-571.308105" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+    </layer>
+</animata>

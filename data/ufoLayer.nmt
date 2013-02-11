@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<animata version="0.004">
+    <layer name="ufoLayer" x="0.000000" y="26.811584" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+        <layer name="ufo" x="-214.492798" y="338.975281" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+            <texture location="UFO.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-3.041705" y="-8.240368" u="-0.005843" v="-0.187920" selected="1" />
+                    <vertex x="603.594604" y="-3.005395" u="1.006956" v="-0.170022" selected="1" />
+                    <vertex x="606.847107" y="178.267227" u="1.013634" v="1.046980" selected="1" />
+                    <vertex x="-10.480186" y="176.874924" u="-0.016973" v="1.055928" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="2" v2="1" />
+                    <face v0="0" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="3.062709" y="115.371422" fixed="0" selected="0" osc="0" />
+                    <joint name="rightwing" x="593.899841" y="112.052551" fixed="0" selected="1" osc="0" />
+                    <joint x="300.950348" y="35.691647" fixed="0" selected="0" osc="0" />
+                    <joint x="299.166656" y="150.666672" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.500000" lm="0.986849" lmmin="0.690000" lmmax="1.050000" tempo="0.000000" time="6.989666" size="598.720215" selected="0" radius="2.350000">
+                        <attached>
+                            <vertex id="0" d="326.306396" w="0.536165" ca="300.084534" sa="128.160583" />
+                            <vertex id="1" d="328.201599" w="0.533471" ca="-306.492188" sa="117.383255" />
+                            <vertex id="2" d="314.642883" w="0.552744" ca="-308.068634" sa="-63.983337" />
+                            <vertex id="3" d="314.447388" w="0.553022" ca="309.227142" sa="-57.059124" />
+                        </attached>
+                    </bone>
+                    <bone name="updown" j0="3" j1="2" stiffness="0.500000" lm="0.667594" lmmin="0.620000" lmmax="1.200000" tempo="0.216000" time="5508.201660" size="172.020676" selected="0" radius="5.410000">
+                        <attached>
+                            <vertex id="0" d="318.778412" w="0.314920" ca="91.385704" sa="-305.398651" />
+                            <vertex id="1" d="316.813477" w="0.319143" ca="98.119240" sa="301.236450" />
+                            <vertex id="2" d="319.065430" w="0.314304" ca="-83.130325" sa="308.045624" />
+                            <vertex id="3" d="323.174316" w="0.305473" ca="-94.028671" sa="-309.192902" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="ufo" x="82.349915" y="152.251556" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+            <texture location="UFO.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-3.065973" y="-6.672062" u="-0.005843" v="-0.187920" selected="1" />
+                    <vertex x="603.570007" y="-1.416093" u="1.006956" v="-0.170022" selected="1" />
+                    <vertex x="606.823242" y="179.806549" u="1.013634" v="1.046980" selected="1" />
+                    <vertex x="-10.503545" y="178.379272" u="-0.016973" v="1.055928" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="2" v2="1" />
+                    <face v0="0" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="3.062709" y="115.371422" fixed="0" selected="0" osc="0" />
+                    <joint name="rightwing" x="593.899841" y="112.052551" fixed="0" selected="1" osc="0" />
+                    <joint x="300.846588" y="42.386623" fixed="0" selected="0" osc="0" />
+                    <joint x="299.166656" y="150.666672" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.500000" lm="0.986849" lmmin="0.690000" lmmax="1.050000" tempo="0.000000" time="6.989666" size="598.720215" selected="0" radius="2.350000">
+                        <attached>
+                            <vertex id="0" d="326.306396" w="0.536165" ca="300.084534" sa="128.160583" />
+                            <vertex id="1" d="328.201599" w="0.533471" ca="-306.492188" sa="117.383255" />
+                            <vertex id="2" d="314.642883" w="0.552744" ca="-308.068634" sa="-63.983337" />
+                            <vertex id="3" d="314.447388" w="0.553022" ca="309.227142" sa="-57.059124" />
+                        </attached>
+                    </bone>
+                    <bone name="updown" j0="3" j1="2" stiffness="0.500000" lm="0.629927" lmmin="0.620000" lmmax="1.200000" tempo="0.216000" time="5408.514160" size="172.020676" selected="0" radius="5.410000">
+                        <attached>
+                            <vertex id="0" d="318.778412" w="0.314920" ca="91.385704" sa="-305.398651" />
+                            <vertex id="1" d="316.813477" w="0.319143" ca="98.119240" sa="301.236450" />
+                            <vertex id="2" d="319.065430" w="0.314304" ca="-83.130325" sa="308.045624" />
+                            <vertex id="3" d="323.174316" w="0.305473" ca="-94.028671" sa="-309.192902" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+        <layer name="ufo" x="406.297424" y="-91.173065" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+            <texture location="UFO.png" x="0.000000" y="0.000000" scale="1.000000" />
+            <mesh>
+                <vertices>
+                    <vertex x="-3.066280" y="-6.665950" u="-0.005843" v="-0.187920" selected="1" />
+                    <vertex x="603.569702" y="-1.410817" u="1.006956" v="-0.170022" selected="1" />
+                    <vertex x="606.823242" y="179.811661" u="1.013634" v="1.046980" selected="1" />
+                    <vertex x="-10.503571" y="178.385147" u="-0.016973" v="1.055928" selected="1" />
+                </vertices>
+                <faces>
+                    <face v0="0" v1="2" v2="1" />
+                    <face v0="0" v1="2" v2="3" />
+                </faces>
+            </mesh>
+            <skeleton>
+                <joints>
+                    <joint x="3.062709" y="115.371422" fixed="0" selected="0" osc="0" />
+                    <joint name="rightwing" x="593.899841" y="112.052551" fixed="0" selected="1" osc="0" />
+                    <joint x="300.845856" y="42.411377" fixed="0" selected="0" osc="0" />
+                    <joint x="299.166656" y="150.666672" fixed="1" selected="0" osc="0" />
+                </joints>
+                <bones>
+                    <bone j0="1" j1="0" stiffness="0.500000" lm="0.986849" lmmin="0.690000" lmmax="1.050000" tempo="0.000000" time="6.989666" size="598.720215" selected="0" radius="2.350000">
+                        <attached>
+                            <vertex id="0" d="326.306396" w="0.536165" ca="300.084534" sa="128.160583" />
+                            <vertex id="1" d="328.201599" w="0.533471" ca="-306.492188" sa="117.383255" />
+                            <vertex id="2" d="314.642883" w="0.552744" ca="-308.068634" sa="-63.983337" />
+                            <vertex id="3" d="314.447388" w="0.553022" ca="309.227142" sa="-57.059124" />
+                        </attached>
+                    </bone>
+                    <bone name="updown" j0="3" j1="2" stiffness="0.500000" lm="0.629780" lmmin="0.620000" lmmax="1.200000" tempo="0.216000" time="4717.361816" size="172.020676" selected="0" radius="5.410000">
+                        <attached>
+                            <vertex id="0" d="318.778412" w="0.314920" ca="91.385704" sa="-305.398651" />
+                            <vertex id="1" d="316.813477" w="0.319143" ca="98.119240" sa="301.236450" />
+                            <vertex id="2" d="319.065430" w="0.314304" ca="-83.130325" sa="308.045624" />
+                            <vertex id="3" d="323.174316" w="0.305473" ca="-94.028671" sa="-309.192902" />
+                        </attached>
+                    </bone>
+                </bones>
+            </skeleton>
+        </layer>
+    </layer>
+</animata>

@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<animata version="0.004">
+    <layer name="layer_0001" x="7.574377" y="7.088834" z="0.000000" alpha="1.000000" scale="0.309999" vis="1">
+        <texture location="arm1.png" x="0.000000" y="0.000000" scale="1.000000" />
+        <mesh>
+            <vertices>
+                <vertex x="3.515453" y="7.534331" u="0.100176" v="0.137448" selected="0" />
+                <vertex x="68.547874" y="7.062246" u="0.927575" v="0.143292" selected="0" />
+                <vertex x="49.984711" y="51.281456" u="0.922338" v="0.938056" selected="1" />
+                <vertex x="4.801273" y="61.207226" u="0.089703" v="0.914680" selected="0" />
+            </vertices>
+            <faces>
+                <face v0="0" v1="1" v2="3" />
+                <face v0="2" v1="1" v2="3" />
+            </faces>
+        </mesh>
+        <skeleton>
+            <joints>
+                <joint x="50.294151" y="49.616032" fixed="0" selected="0" osc="0" />
+                <joint x="28.947685" y="29.856640" fixed="0" selected="0" osc="0" />
+                <joint x="16.077038" y="18.334894" fixed="0" selected="0" osc="0" />
+            </joints>
+            <bones>
+                <bone j0="0" j1="1" stiffness="0.500000" lm="1.000000" lmmin="0.010000" lmmax="1.000000" tempo="0.000000" time="1.570796" size="29.088213" selected="0" radius="1.460000">
+                    <attached>
+                        <vertex id="2" d="15.514977" w="0.269347" ca="-15.448713" sa="-1.432391" />
+                    </attached>
+                </bone>
+                <bone name="arm1bone1" j0="1" j1="2" stiffness="0.500000" lm="0.370127" lmmin="0.370000" lmmax="1.230000" tempo="0.044000" time="86.418060" size="46.671547" selected="0" radius="1.140000">
+                    <attached>
+                        <vertex id="0" d="25.202675" w="0.052630" ca="25.200499" sa="-0.331205" />
+                    </attached>
+                </bone>
+            </bones>
+        </skeleton>
+    </layer>
+</animata>
