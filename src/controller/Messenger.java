@@ -36,12 +36,12 @@ public class Messenger extends PApplet {
 	public void setup() {
 		// set up the client
 		// For testing locally
-		//client = new AsyncClient("localhost",9003);
-//		client.DEBUG = false;
+		client = new AsyncClient("localhost",9003);
+		client.DEBUG = false;
 
 		// At NYU
-		client = new AsyncClient("128.122.151.65", 9003);
-		client.DEBUG = false;
+//		client = new AsyncClient("128.122.151.65", 9003);
+//		client.DEBUG = false;
 
 		// At IAC
 		// client = new AsyncClient("192.168.130.241",9003);

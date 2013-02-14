@@ -16,12 +16,12 @@ public class Drawer extends PApplet {
 	// Set it to 1 for actual size, 0.5 for half size, etc.
 	// This is useful for testing MPE locally and scaling it down to fit to your
 	// screen
-	public static float scale = 1f;
+	public static float scale = .3f;
 
 	// if this is true, it will use the MPE library, otherwise just run
 	// stand-alone
 	public static boolean MPE = true;
-	public static boolean local = false;
+	public static boolean local = true;
 
 	// Client ID
 	// Should be adjusted only for "local" testing
@@ -59,6 +59,9 @@ public class Drawer extends PApplet {
 	AnimataP5 body2 ;
 	AnimataP5 body3 ;
 	
+	int moveX = 0;
+	int moveY = 0;
+	
 	//worm
 	int b1;
 	int bA;
@@ -78,9 +81,10 @@ public class Drawer extends PApplet {
 	int leg4;
 	int sA;
 	
-////buildings
-//	int building1, buildingA;
-
+//buildings
+	int building1, buildingA;
+	int buildingx, buildingy;
+	
 	
 //UFOs
 	int ufoUp;
@@ -117,8 +121,9 @@ public class Drawer extends PApplet {
 
 	
 	public void init(){
-		frame.removeNotify();
-		frame.setUndecorated(true);
+//RE-ADD THIS STUFF
+//		frame.removeNotify();
+//		frame.setUndecorated(true);
 		frame.addNotify();
 		super.init();
 	}
@@ -424,21 +429,23 @@ public class Drawer extends PApplet {
 		  
 		  //worm monster
 		  		  
-		  armH.draw(9500, -200);
+//		  armH.draw(9500-moveX, -200);
+		  armH.draw(16000-moveX, -200);
 
-		  buildings.draw(300, 600); 
-		  buildings.draw(3300, 600); 
-		  buildings.draw(5300, 600); 
+		  buildings.draw(300+buildingx, 600+buildingy); 
+		  buildings.draw(3300+buildingx, 600+buildingy); 
+		  buildings.draw(5300+buildingx, 600+buildingy); 
 		  
 		  
-		  squid.draw(leg4+1000, 600);
-		  buildings.draw(300, 800); 
+//		  squid.draw(leg4+1000+moveX, 600);
+		  squid.draw(leg4+-1000+moveX, 600);
+		  buildings.draw(1500+buildingx, 600+buildingy); 
 
 		  
 
-		  buildings.draw(6700, 600);
-		  buildings.draw(8700, 600);
-		  buildings.draw(10000, 600);
+		  buildings.draw(6700+buildingx, 600+buildingy);
+		  buildings.draw(8700+buildingx, 600+buildingy);
+		  buildings.draw(10000+buildingx, 600+buildingy);
 
 		  ufo.draw(ufoUp+2400, random(50, 60));
 		  ufo.draw(ufoUp+3500, random(65, 80));
@@ -451,20 +458,26 @@ public class Drawer extends PApplet {
 		  ufo.draw(ufoUp+9500, random(50, 60));
 		  
 
-		  octu.draw(7700, 1300);
+//		  octu.draw(7700-moveX, 1300);
+		  octu.draw(15000-moveX, 1300);
+		  
+		  
 		  
 		//draw dancing eyeball
 		  
 		  body1.draw(centi[centi.length-1].x-80, centi[centi.length-1].y-162); 
+		  body1.draw(centi[centi.length-1].x+5000, centi[centi.length-1].y-162); 
+		  body1.draw(centi[centi.length-1].x+9000, centi[centi.length-1].y-162); 
 		  
-		  body1.draw(centi[centi.length-1].x+400, centi[centi.length-1].y-162); 
 
 		  body2.draw(centi[0].x-80, centi[0].y-162);  
-		  body2.draw(centi[0].x+400, centi[0].y-162);  
+		  body2.draw(centi[0].x+5000, centi[0].y-162);  
+		  body2.draw(centi[0].x+9000, centi[0].y-162);
+		  
 
 		  body3.draw(centitwo[centitwo.length-1].x+130, centitwo[centitwo.length-1].y-130);
-		  body3.draw(centitwo[centitwo.length-1].x+610, centitwo[centitwo.length-1].y-130);
-
+		  body3.draw(centitwo[centitwo.length-1].x+5130, centitwo[centitwo.length-1].y-130);
+		  body3.draw(centitwo[centitwo.length-1].x+9130, centitwo[centitwo.length-1].y-130);
 		  
 		    centi[0].offsetx= xpos;
 		    centi[0].offsety= ypos;
@@ -502,6 +515,12 @@ public class Drawer extends PApplet {
 //		  buildings.draw(3000, 600);
 	
 
+		    moveX += 15;
+		    
+//		    if (moveX > 11520) {
+//		    	moveX = 0;
+//		    }
+		    
 	}
 	
 	
