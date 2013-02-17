@@ -28,6 +28,9 @@ public class Messenger extends PApplet {
 	int arm3;
 	int head;
 	int oAlpha;
+	int neck1;
+	int neck2;
+	int head1;
 	
 	
 
@@ -44,7 +47,7 @@ public class Messenger extends PApplet {
 //		client.DEBUG = false;
 
 		// At IAC
-		// client = new AsyncClient("192.168.130.241",9003);
+		//client = new AsyncClient("192.168.130.241",9003);
 
 		OscP5 oscP5;
 	  //NetAddress myRemoteLocation;

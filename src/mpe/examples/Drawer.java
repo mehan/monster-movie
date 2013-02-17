@@ -20,7 +20,7 @@ public class Drawer extends PApplet {
 
 	// if this is true, it will use the MPE library, otherwise just run
 	// stand-alone
-	public static boolean MPE = true;
+	public static boolean MPE = false;
 	public static boolean local = true;
 
 	// Client ID
@@ -58,10 +58,22 @@ public class Drawer extends PApplet {
 	AnimataP5 body1 ;
 	AnimataP5 body2 ;
 	AnimataP5 body3 ;
+
+
+
+	AnimataP5 neck1 ;
+	AnimataP5 neck2 ;
+	AnimataP5 head1 ;
 	
+	float vol;
+//	float i;
+	Neck1[] neckA1 = new Neck1[40];
+	float movex2, movey2 ;
+	boolean toggle2x, toggle2y;
+	int t3=0, t4;
 	int moveX = 0;
 	int moveY = 0;
-	
+
 	//worm
 	int b1;
 	int bA;
@@ -71,8 +83,8 @@ public class Drawer extends PApplet {
 	float wormb2;
 	float wormb3;
 	float wormA;
-	
-	
+
+
 // squid 1 + legs	
 
 	int leg1;
@@ -80,12 +92,12 @@ public class Drawer extends PApplet {
 	int leg3;
 	int leg4;
 	int sA;
-	
+
 //buildings
 	int building1, buildingA;
 	int buildingx, buildingy;
-	
-	
+
+
 //UFOs
 	int ufoUp;
 	int ufoAlpha;
@@ -96,16 +108,16 @@ public class Drawer extends PApplet {
 	int arm3;
 	int head;
 	int oAlpha;
-	
+
 	Centi[] centi = new Centi[26];
 
 	Centitwo[] centitwo = new Centitwo[26];
-	
+
 	float movex, movey ;
 
 	boolean togglex, toggley;
 	int t=0, t2;
-	
+
 
 	// --------------------------------------
 	static public void main(String args[]) {
@@ -119,15 +131,15 @@ public class Drawer extends PApplet {
 		}
 	}
 
-	
+
 	public void init(){
 //RE-ADD THIS STUFF
-//		frame.removeNotify();
-//		frame.setUndecorated(true);
+		frame.removeNotify();
+		frame.setUndecorated(true);
 		frame.addNotify();
 		super.init();
 	}
-	
+
 	// --------------------------------------
 	public void setup() {
 
@@ -176,13 +188,13 @@ public class Drawer extends PApplet {
 		//////////////////////////////////////////////////
 		//////////////////////////////////////////////////
 
-		  
+
 		  armH = new AnimataP5(this, "worm4.nmt");
 		  squid = new AnimataP5(this, "squidfinal.nmt");
 		  ufo = new AnimataP5(this, "ufo.nmt");
 		  octu = new AnimataP5(this, "octu4.nmt");
 		  buildings= new AnimataP5(this, "buildings.nmt");
-		  
+
 		  movex= width/2 ; 
 		  movey= height/2;
 		  armA = new AnimataP5(this, "arm1.nmt");
@@ -190,7 +202,7 @@ public class Drawer extends PApplet {
 		  body1 = new AnimataP5(this, "body1.nmt");
 		  body2 = new AnimataP5(this, "body2.nmt");
 		  body3 = new AnimataP5(this, "body1.nmt");
-		  
+
 		  for (int i = 0; i < centi.length; i ++ ) {   
 			    centi[i] = new Centi();
 			  }  
@@ -202,10 +214,24 @@ public class Drawer extends PApplet {
 		  bg0 = loadImage("background_1.1.png");
 		  bg1 = loadImage("background_1.1.png");
 		  bg2 = loadImage("background_1.1.png");
+		  
+		  movex2= mWidth/3+300 ; 
+		  movey2= mHeight/2;
+
+		  neck1 = new AnimataP5(this, "wormNeck.nmt");
+
+		  head1 = new AnimataP5(this, "wormHead.nmt");
 
 
 
-		
+		  for (int i = 0; i < neckA1.length; i ++ ) {   
+		    neckA1[i] = new Neck1();
+		  }  
+
+
+
+
+
 		if (MPE) {
 			// IMPORTANT, YOU MUST START THE CLIENT!
 			client.start();
@@ -236,83 +262,83 @@ public class Drawer extends PApplet {
 	public void frameEvent(TCPClient c) {
 
 		String show = "";
-		
+
 		// Receiving a message for background color
 		if (MPE && c.messageAvailable()) {
 			String[] msg = c.getDataMessage();
 
 			// //////////////PARSE OSC MSGS///////////////////
-		
+
 
 			println("MESSAGE RECEIVED: " + msg[0]);
 			show = "MESSAGE RECEIVED: " + msg[0];
 			String[] input = msg[0].split(",");
 			show += "\n total values: " + input.length;
 			if (input.length > 1) {
-				
+
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////?????????
 				int tempx = parseInt(input[0]);
 				if (tempx != 0) b1 = tempx;
-				
+
 				 tempx = parseInt(input[1]);
 				if (tempx != 0) bA = tempx;
-				
+
 		         tempx = parseInt(input[2]);
 				if (tempx != 0) wormjx1 = tempx;
-				
+
 				 tempx = parseInt(input[3]);
 				if (tempx != 0) wormjy1 = tempx;
-				
+
 				 tempx = parseInt(input[4]);
 				if (tempx != 0) wormb1 = tempx;
-				
+
 				int tempy = parseInt(input[5]);
 				if (tempy != 0) wormb2 = tempy;
-				
-				
+
+
 				 tempx = parseInt(input[6]);
 				if (tempx != 0) wormb3 = tempx;
-				
+
 				 tempx = parseInt(input[7]);
 				if (tempx != 0) wormA = tempx;
-				
+
 				 tempx = parseInt(input[8]);
 				if (tempx != 0) leg1 = tempx;
-				
+
 				 tempx = parseInt(input[9]);
 				if (tempx != 0) leg2 = tempx;
-				
+
 				 tempx = parseInt(input[10]);
 				if (tempx != 0) leg3 = tempx;
-				
+
 				 tempx = parseInt(input[11]);
 				if (tempx != 0) leg4 = tempx;
-				
+
 				 tempx = parseInt(input[12]);
 				if (tempx != 0) sA = tempx;
-				
+
 				tempx = parseInt(input[13]);
 				if (tempx != 0) ufoUp = tempx;
-				
+
 				tempx = parseInt(input[14]);
 				if (tempx != 0) ufoAlpha = tempx;
-				
+
 				tempx = parseInt(input[15]);
 				if (tempx != 0) arm1 = tempx;
-				
+
 				tempx = parseInt(input[16]);
 				if (tempx != 0) arm2 = tempx;
-				
+
 				tempx = parseInt(input[17]);
 				if (tempx != 0) arm3 = tempx;
-				
+
 				tempx = parseInt(input[18]);
 				if (tempx != 0) head = tempx;
-				
+
 				tempx = parseInt(input[19]);
 				if (tempx != 0) oAlpha = tempx;
-				
-				
+
+
 			}
 		}
 
@@ -325,18 +351,18 @@ public class Drawer extends PApplet {
 		// ///////////////////////////////////////////////
 		// /////////////////////DRAW//////////////////////
 		// ///////////////////////////////////////////////
-	
-		
+
+
 //		if (ID == 0)
 			image(bg0,0,0);
 //		if (ID == 1)
 			image(bg1,3840,0);
 //		if (ID == 2)
 			image(bg2,3840*2,0);
-		
 
-		  
-		  
+
+
+
           //worm
 		  armH.moveJointX("backbone", wormjx1); // set x-coordinate of joint "poignee" to 10
 		  armH.moveJointY("backbone", wormjy1); // set y-coordinate of joint "poignee" to 500
@@ -347,9 +373,9 @@ public class Drawer extends PApplet {
 		  armH.setLayerAlpha("worm", wormA); // set the alpha value of the layer "arm" to 120 (0=transparent/255=opaque)
 		  armH.setLayerScale("worm", 1f); // set the scale of the layer "arm" to .6 (in this case, default is 0.5)
 		  armH.setLayerPos("worm", 0, 0); // set the position of layer "arm" to (0,70)
-		
+
 		  //squid
-		  
+
 		  squid.moveJointY("leg1", leg1);
 		  squid.moveJointY("leg2", leg2);
 		  squid.moveJointX("leg3", leg3);
@@ -360,7 +386,7 @@ public class Drawer extends PApplet {
 		  squid.setLayerScale("squid", .9f); 
 
 		  //octopus
-		  
+
 		  octu.moveJointY("arm1", arm1);
 		  octu.moveJointY("arm2", arm2);
 		  octu.moveJointX("arm3", arm3);
@@ -372,22 +398,22 @@ public class Drawer extends PApplet {
 		  ufo.setLayerPos("ufo", 0, 0f); 
 		  ufo.setLayerScale("ufo", 0.5f); 
 
-		 
+
           //buildings
 		  buildings.setLayerAlpha("buildings", 0f);
 		  buildings.setLayerScale("buildings", .7f);
-		  	
+
 
   //dancing eyeball
-		  
+
 		  body2.setBoneTempo("body2bone1", 0.001f*leg1); 
 		  body2.setBoneRange("body2bone1", 1.3f, 2.3f); 
-		  
 
-		  movex+= leg1*.0001 ;
-		  float xpos = noise(movex) * width;
-		  movey+= leg2*.0001 ;
-		  float ypos = noise(movey) * height; 
+
+		  movex+= vol*.1 ;
+		  float xpos = noise(movex) * mWidth;
+		  movey+= vol*.1 ;
+		  float ypos = noise(movey) * mHeight; 
 		  if (centi[0].x-centi[1].x>0 ) {    
 		    togglex=true;
 		    t=1;
@@ -421,27 +447,72 @@ public class Drawer extends PApplet {
 		  body1.setBoneTempo("body1bone1", 0.07f); 
 		  body1.setBoneRange("body1bone1", 0.3f, 2.5f); 
 		  
-		  
-		  
+		  movex2+= vol*.1 ;
+		  float xpos2 = noise(movex2) * mouseX*4;
+		  movey2+= vol*.1 ;
+		  float ypos2 = noise(movey2) * mouseY*4; 
+
+
+
+		  if (neckA1[0].x-neckA1[1].x>0 ) {    
+		    toggle2x=true;
+		    t3=1;
+		  }
+		  if (neckA1[0].x-neckA1[1].x<0 ) {    
+		    toggle2x=false;
+		    t3=0;
+		  }
+		  if (neckA1[0].x-neckA1[1].x==0 && t3==1) {
+		    toggle2x=true;
+		  }
+		  if (neckA1[0].x-neckA1[1].x==0 && t3==0) {
+		    toggle2x=false;
+		  }
+
+		  ///////
+
+		  if (neckA1[0].y-neckA1[1].y>0) { 
+		    toggle2y=true;
+		    t4=1;
+		  }
+		  if (neckA1[0].y-neckA1[1].y<0 ) {    
+		    toggle2y=false;
+		    t4=0;
+		  }
+		  if (neckA1[0].y-neckA1[1].y==0 && t4==1) {
+		    toggle2y=true;
+		  }
+		  if (neckA1[0].y-neckA1[1].y==0 && t4==0) {
+		    toggle2y=false;
+		  } 
+
+
+		  neckA1[0].offsetx= xpos2-10;
+		  neckA1[0].offsety=ypos2-10;
+
+
+
+
+
 		  //***DRAWING ON SCREEN***
-		  
-		  
-		  
+
+
+
 		  //worm monster
-		  		  
+
 //		  armH.draw(9500-moveX, -200);
 		  armH.draw(16000-moveX, -200);
 
 		  buildings.draw(300+buildingx, 600+buildingy); 
 		  buildings.draw(3300+buildingx, 600+buildingy); 
 		  buildings.draw(5300+buildingx, 600+buildingy); 
-		  
-		  
+
+
 //		  squid.draw(leg4+1000+moveX, 600);
 		  squid.draw(leg4+-1000+moveX, 600);
 		  buildings.draw(1500+buildingx, 600+buildingy); 
 
-		  
+
 
 		  buildings.draw(6700+buildingx, 600+buildingy);
 		  buildings.draw(8700+buildingx, 600+buildingy);
@@ -456,29 +527,29 @@ public class Drawer extends PApplet {
 		  ufo.draw(ufoUp+8300, random(50, 60));
 		  ufo.draw(ufoUp+11000, random(60, 70));
 		  ufo.draw(ufoUp+9500, random(50, 60));
-		  
+
 
 //		  octu.draw(7700-moveX, 1300);
 		  octu.draw(15000-moveX, 1300);
-		  
-		  
-		  
+
+
+
 		//draw dancing eyeball
-		  
+
 		  body1.draw(centi[centi.length-1].x-80, centi[centi.length-1].y-162); 
 		  body1.draw(centi[centi.length-1].x+5000, centi[centi.length-1].y-162); 
 		  body1.draw(centi[centi.length-1].x+9000, centi[centi.length-1].y-162); 
-		  
+
 
 		  body2.draw(centi[0].x-80, centi[0].y-162);  
 		  body2.draw(centi[0].x+5000, centi[0].y-162);  
 		  body2.draw(centi[0].x+9000, centi[0].y-162);
-		  
+
 
 		  body3.draw(centitwo[centitwo.length-1].x+130, centitwo[centitwo.length-1].y-130);
 		  body3.draw(centitwo[centitwo.length-1].x+5130, centitwo[centitwo.length-1].y-130);
 		  body3.draw(centitwo[centitwo.length-1].x+9130, centitwo[centitwo.length-1].y-130);
-		  
+
 		    centi[0].offsetx= xpos;
 		    centi[0].offsety= ypos;
 
@@ -505,36 +576,51 @@ public class Drawer extends PApplet {
 
 		      centitwo[i].display();
 		    }
-
-
-		  
-		  
-		  
-		  
-		
-//		  buildings.draw(3000, 600);
-	
-
-		    moveX += 15;
 		    
-//		    if (moveX > 11520) {
-//		    	moveX = 0;
-//		    }
-		    
+		    neckA1[0].display();
+
+
+		    for (int i = 1; i < neckA1.length; i ++ ) {   
+		      neckA1[i].offsetx=neckA1[i-1].x-10 ;
+		      neckA1[i].offsety=neckA1[i-1].y+10 ;
+
+		      neckA1[i].display();
+		    }
+
+		    head1.setLayerScale("wormHead", 0.7f);
+		   head1.setBoneTempo("body1bone1", 0.07f); 
+		   head1.setBoneRange("body1bone1", 0.3f, 2.5f); 
+		   head1.draw(neckA1[neckA1.length-1].x+500, neckA1[neckA1.length-1].y+250);
+//		   head1.draw(neckA1[neckA1.length-1].x+mouse, neckA1[neckA1.length-1].y+500);
+//		   head1.draw(neckA1[neckA1.length-1].x+1280, neckA1[neckA1.length-1].y+750); 
+
+
+
+
+
+//FOR LOCAL
+		   
+		   moveX += 15;
+		   
+		   
+//FOR IAC
+//		    moveX +=3.5;
+
+
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	class Centi{
-		 
+
 		  float offset1, offset2 ;
 		  float offsetx;
 		float offsety;
 		float followx, followy;
 		  //****NEED TO REPLACE leg1 WITH OUR OWN VARIABLE BELOW***
-		float easing = 0.76f*(1-leg1);
+		float easing = 0.76f*(1-vol);
 		float x=width/2; 
 		float y=height/2;
 		//boolean togglex, toggley;
@@ -544,17 +630,17 @@ public class Drawer extends PApplet {
 
 
 		 Centi( ) {
-		  
+
 		 //armA = new AnimataP5(this,"core.nmt");  
 		//   offset1=tempOffset1;
 		//   offset2=tempOffset2;
 		//   offsetx=tempOffsetx;
 		//   offsety=tempOffsety;
-		   
+
 		      armA.setBoneTempo("arm1bone1", 0.01f); 
 		    armA.setBoneRange("arm1bone1",0.01f,0.1f); 
 		 } 
-		  
+
 		//  void xeno() {
 		//    
 		// 
@@ -562,38 +648,38 @@ public class Drawer extends PApplet {
 		//offsety += (followy - offsety) * easing ;
 		//   
 		//  }
-		 
+
 		  void display() {
-		   
+
 
 		  ///////
 		  if(togglex==true  )  {
-		   
+
 		    x += ((offsetx+random(-body2,-body1)) - x) * easing ; 
 
 		  }
-		 
-		  
+
+
 		   if(togglex==false  )  {
-		   
+
 		    x += ((offsetx+random(body1,body2)) - x) * easing ; 
 		  }
-		  
+
 		    if(toggley==true  )  {
 		   y += ((offsety+random(-body2,-body1)) - y ) * easing ;
 		  }
-		  
+
 		      if(toggley==false  )  {
 		       y += ((offsety+random(body1,body2)) - y ) * easing ;
-		       
+
 		  }
-		  
-		  
+
+
 		   armA.draw(x-30,y-40); 
 		  }
-		 
+
 		}
-	
+
 
 	class Centitwo {
 
@@ -603,8 +689,8 @@ public class Drawer extends PApplet {
 		  float followx, followy;
 		  //****NEED TO REPLACE leg1 WITH OUR OWN VARIABLE BELOW***
 		  float easing = 0.76f*(1-leg1);
-		  float x=width/2; 
-		  float y=height/2;
+		  float x=mWidth/2; 
+		  float y=mHeight/2;
 		  float body1=5;
 		  float body2=7 ; 
 
@@ -644,11 +730,59 @@ public class Drawer extends PApplet {
 		    armB.draw(x+630, y);
 		  }
 		}
+	class Neck1{
+		 
+		  float offset1, offset2 ;
+		  float offsetx;
+		float offsety;
+		float followx, followy;
+		float easing = 0.76f*(1-vol);
+         float x=mWidth/3f; 
+		float y=mHeight/3f;
+		//boolean togglex, toggley;
+		//int t=0, t2;
+		float body1=5;
+		float body2=7 ; 
 
 
-	
-	
-	
-	
+		 Neck1( ) {
+		      neck1.setBoneTempo("arm1bone1", 0.01f); 
+		      neck1.setBoneRange("arm1bone1",0.01f,0.1f); 
+		   } 
+		  void display() {
+			  if(toggle2x==true  )  {
+				   
+				    x += ((offsetx+random(-body2,-body1)) - x) * easing ; 
+
+				  }
+				 
+				  
+				   if(toggle2x==false  )  {
+				   
+				    x += ((offsetx+random(body1,body2)) - x) * easing ; 
+				  }
+				  
+				    if(toggle2y==true  )  {
+				   y += ((offsety+random(-body2,-body1)) - y ) * easing ;
+				  }
+				  
+				      if(toggle2y==false  )  {
+				       y += ((offsety+random(body1,body2)) - y ) * easing ;
+				       
+				  }
+				  
+				  neck1.setLayerScale("wormNeck", 0.7f);
+				  //rect(x-10, y-10, 20 ,20);
+				   neck1.draw(x+300,y+mouseY-10);
+//				   neck1.draw(x+600,y+240);
+//				   neck1.draw(x+900,y+490); //relative position for the neck class
+				  }
+				}
+		
+
+
+
+
+
+
 }
-
