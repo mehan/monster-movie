@@ -16,12 +16,12 @@ public class Drawer extends PApplet {
 	// Set it to 1 for actual size, 0.5 for half size, etc.
 	// This is useful for testing MPE locally and scaling it down to fit to your
 	// screen
-	public static float scale = .4f;
+	public static float scale = 1.0f;
 
 	// if this is true, it will use the MPE library, otherwise just run
 	// stand-alone
 	public static boolean MPE = true;
-	public static boolean local = true;
+	public static boolean local = false;
 
 	// Client ID
 	// Should be adjusted only for "local" testing
@@ -116,7 +116,7 @@ public class Drawer extends PApplet {
 	int leg2;
 	int leg3;
 	int leg4;
-	int sAlpha = -500;
+	int sAlpha = -1000;
 
 //buildings
 	int building1, buildingA;
@@ -472,8 +472,8 @@ public class Drawer extends PApplet {
 
 		  movex+= leg1*.0001 ;
 		  float xpos = noise(movex) * width;
-		  movey+= leg2*.0001 ;
-		  float ypos = noise(movey) * height+sAlpha*5; 
+		  movey+= leg1*.0001 ;
+		  float ypos = noise(movey) * height-sAlpha*7; 
 		  if (centi[0].x-centi[1].x>0 ) {    
 		    togglex=true;
 		    t=1;
@@ -517,7 +517,7 @@ public class Drawer extends PApplet {
 		  float xpos2 = (20000+(noise(movex2) * width+leg2))-moveX;
 		
 		  movey2+= vol*.01 ;
-		  float ypos2 = noise(movey2) * height+leg1-1000; 
+		  float ypos2 = noise(movey2) * height+leg1-1500; 
 
 
 
@@ -564,32 +564,32 @@ public class Drawer extends PApplet {
 		  //***DRAWING ON SCREEN***
 		  ///movingbg///////
 		  
-		   speed= 1200*.009f;
-
-		      x1+=speed*.05;
-		      x1%=1200;
-		    
-		          x3+=speed*.1;
-		          x3%=1200;
-		          x4+=speed*.2;
-		          x4%=1200;
-		      
-		      
-		        x2+=speed*.6;
-		      x2%=1200;
+//		   speed= 1200*.009f;
+//
+//		      x1+=speed*.05;
+//		      x1%=1200;
+//		    
+//		          x3+=speed*.1;
+//		          x3%=1200;
+//		          x4+=speed*.2;
+//		          x4%=1200;
+//		      
+//		      
+//		        x2+=speed*.6;
+//		      x2%=1200;
 	     
 //		      
 //		     ////////////////////////
-		      pushMatrix();
-		      scale(1.5f);
-		      for (int m = 0; m < 11520; m = m+1200) { 
-		        image(b3, x3+m, 520 );
-		       image(b3.get(b3.width- x3, 0, x3, b3.height ), 0, 520);
-		   
-		 
-		       image(b4, x4+m, 580 );
-		       image(b4.get(b4.width- x4, 0, x4, b4.height ), 0, 580);}
-		       popMatrix();
+//		      pushMatrix();
+//		      scale(1.5f);
+//		      for (int m = 0; m < 11520; m = m+1200) { 
+//		        image(b3, x3+m, 520 );
+//		       image(b3.get(b3.width- x3, 0, x3, b3.height ), 0, 520);
+//		   
+//		 
+//		       image(b4, x4+m, 580 );
+//		       image(b4.get(b4.width- x4, 0, x4, b4.height ), 0, 580);}
+//		       popMatrix();
 		       
 		       
 		    
@@ -608,13 +608,16 @@ public class Drawer extends PApplet {
 		  squid.draw(-5000+moveX+leg2, 600);
 		  
 		  
-//		  buildings.draw(1500+buildingx, 600+buildingy); 
+		  buildings.draw(1500+buildingx-moveX, 1400+buildingy-b1*5); 
 
 
 //
-//		  buildings.draw(6700+buildingx-moveX*.7f, 1200+buildingy-b1*3);
-//		  buildings.draw(8700+buildingx-moveX*.6f, 1200+buildingy-b1*4);
-//		  buildings.draw(10000+buildingx-moveX*.65f, 1200+buildingy-b1*5);
+		  buildings.draw(6700+buildingx-moveX*.5f, 1200+buildingy-b1*5);
+		  buildings.draw(8700+buildingx-moveX*.3f, 1200+buildingy-b1*5);
+		  buildings.draw(10000+buildingx-moveX*.33f, 1200+buildingy-b1*4);
+		  buildings.draw(12700+buildingx-moveX*.4f, 1200+buildingy-b1*5);
+		  buildings.draw(14700+buildingx-moveX*.3f, 1200+buildingy-b1*5);
+		  buildings.draw(16000+buildingx-moveX*.2f, 1200+buildingy-b1*4);
 		  
 		  
 ///ufodraw
@@ -716,10 +719,12 @@ public class Drawer extends PApplet {
 		   popMatrix();
 		     pushMatrix();
 	          scale(1.5f);
-			  buildings.draw(300+buildingx-moveX, 1270+buildingy-b1*7); 
+			  buildings.draw(300+buildingx-moveX*.5f, 2000+buildingy-b1*7); 
 			  popMatrix();
-			  buildings.draw(3300+buildingx-moveX, 1270+buildingy-b1*5); 
-			  buildings.draw(5300+buildingx-moveX, 1270+buildingy-b1*5); 
+			  buildings.draw(3300+buildingx-moveX*.5f, 1500+buildingy-b1*4); 
+			  buildings.draw(5300+buildingx-moveX*.5f, 1500+buildingy-b1*4); 
+			  buildings.draw(7300+buildingx-moveX*.5f, 1500+buildingy-b1*4); 
+			  buildings.draw(9300+buildingx-moveX*.5f, 1500+buildingy-b1*4); 
 		   
 ///////////////////////////////////
 //movingbg///		   
@@ -736,7 +741,7 @@ public class Drawer extends PApplet {
 ///globalmove//////
 //FOR LOCAL
 		   
-		   moveX += 3.5;
+		   moveX += 5;
 		   
 		   
 //FOR IAC
