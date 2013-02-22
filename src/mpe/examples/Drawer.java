@@ -608,7 +608,7 @@ public class Drawer extends PApplet {
 
 //		  squid.draw(leg4+1000+moveX, 600);
 		  
-		  squid.draw(-1000+moveX+leg2, 600);
+		  squid.draw(-2500+moveX+leg2, 600);
 		  
 		  
 //		  buildings.draw(1500+buildingx, 600+buildingy); 
@@ -967,7 +967,7 @@ public class Drawer extends PApplet {
 		       armLeft2.setBoneTempo("leftbone1", 0.01f);
 		       armLeft3.setBoneTempo("leftbone1", 0.01f); 
 		  }
-			  /////spiderArmDraw///
+			  /////spiderArmDraw start at -1000, add moveX for x position///
 		  pushMatrix();
 		   // rotate(PI*.02);
 		    scale(2.0f);
