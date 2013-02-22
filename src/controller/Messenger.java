@@ -17,7 +17,7 @@ public class Messenger extends PApplet {
 	boolean message = true;
 	
 	int b1, bA;
-	int wormjx1, wormjy1, wormb1, wormb2, wormb3, wormA;
+	float wormjx1, wormjy1, wormb1, wormb2, wormb3, wormA;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////?????????
 	int  leg1, leg2, leg3, leg4, sAlpha;
 	
@@ -39,7 +39,7 @@ public class Messenger extends PApplet {
 	public void setup() {
 		// set up the client
 		// For testing locally
-		client = new AsyncClient("localhost",9003);
+		//client = new AsyncClient("localhost",9003);
 		client.DEBUG = false;
 
 		// At NYU
@@ -47,7 +47,7 @@ public class Messenger extends PApplet {
 //		client.DEBUG = false;
 
 		// At IAC
-		//client = new AsyncClient("192.168.130.241",9003);
+		client = new AsyncClient("192.168.130.241",9003);
 
 		OscP5 oscP5;
 	  //NetAddress myRemoteLocation;

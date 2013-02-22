@@ -16,7 +16,7 @@ public class Drawer extends PApplet {
 	// Set it to 1 for actual size, 0.5 for half size, etc.
 	// This is useful for testing MPE locally and scaling it down to fit to your
 	// screen
-	public static float scale = 0.4f;
+	public static float scale = .4f;
 
 	// if this is true, it will use the MPE library, otherwise just run
 	// stand-alone
@@ -100,7 +100,7 @@ public class Drawer extends PApplet {
 	int moveY = 0;
 
 	//worm
-	int b1;
+	int b1 = 0;
 	int bA;
 	int wormjx1 = 1297;
 	int wormjy1 = 489;
@@ -116,7 +116,7 @@ public class Drawer extends PApplet {
 	int leg2;
 	int leg3;
 	int leg4;
-	int sAlpha = 0;
+	int sAlpha = -500;
 
 //buildings
 	int building1, buildingA;
@@ -426,9 +426,9 @@ public class Drawer extends PApplet {
           //worm
 		  armH.moveJointX("backbone", wormjx1); // set x-coordinate of joint "poignee" to 10
 		  armH.moveJointY("backbone", wormjy1); // set y-coordinate of joint "poignee" to 500
-		  armH.setBoneTempo("righteye", .5f); // set tempo of bone "coude" to .5
-		  armH.setBoneTempo("lefteye", .7f); // set tempo of bone "coude" to .5
-		  armH.setBoneTempo("teeth", .3f); // set tempo of bone "coude" to .5
+		  armH.setBoneTempo("righteye", wormb1*.001f); // set tempo of bone "coude" to .5
+		  armH.setBoneTempo("lefteye", wormb1*.001f); // set tempo of bone "coude" to .5
+		  armH.setBoneTempo("teeth", wormb1*.001f); // set tempo of bone "coude" to .5
 		  armH.setBoneRange("worm", .1f, .8f); // set the range of bone "coude" between .2 and .6
 		  armH.setLayerAlpha("worm", wormA); // set the alpha value of the layer "arm" to 120 (0=transparent/255=opaque)
 		  armH.setLayerScale("worm", 1f); // set the scale of the layer "arm" to .6 (in this case, default is 0.5)
@@ -450,7 +450,7 @@ public class Drawer extends PApplet {
 		  octu.moveJointY("arm1", arm1);
 		  octu.moveJointY("arm2", arm2);
 		  octu.moveJointX("arm3", arm3);
-		  octu.moveJointY("head", head);
+		  octu.setBoneTempo("headlength", head*.001f);
 		  octu.setLayerScale("octu", .4f); 
 
 
@@ -564,33 +564,32 @@ public class Drawer extends PApplet {
 		  //***DRAWING ON SCREEN***
 		  ///movingbg///////
 		  
-//		   speed= 1200*.009f;
-//
-//		      x1+=speed*.05;
-//		      x1%=1200;
-//		    
-//		          x3+=speed*.1;
-//		          x3%=1200;
-//		          x4+=speed*.2;
-//		          x4%=1200;
-//		      
-//		      
-//		        x2+=speed*.6;
-//		      x2%=1200;
-//		      
-//		     
+		   speed= 1200*.009f;
+
+		      x1+=speed*.05;
+		      x1%=1200;
+		    
+		          x3+=speed*.1;
+		          x3%=1200;
+		          x4+=speed*.2;
+		          x4%=1200;
+		      
+		      
+		        x2+=speed*.6;
+		      x2%=1200;
+	     
 //		      
 //		     ////////////////////////
-//		      pushMatrix();
-//		      scale(1.5f);
-//		      for (int m = 0; m < 11520; m = m+1200) { 
-//		        image(b3, x3+m, 520 );
-//		       image(b3.get(b3.width- x3, 0, x3, b3.height ), 0, 520);
-//		   
-//		 
-//		       image(b4, x4+m, 580 );
-//		       image(b4.get(b4.width- x4, 0, x4, b4.height ), 0, 580);}
-//		       popMatrix();
+		      pushMatrix();
+		      scale(1.5f);
+		      for (int m = 0; m < 11520; m = m+1200) { 
+		        image(b3, x3+m, 520 );
+		       image(b3.get(b3.width- x3, 0, x3, b3.height ), 0, 520);
+		   
+		 
+		       image(b4, x4+m, 580 );
+		       image(b4.get(b4.width- x4, 0, x4, b4.height ), 0, 580);}
+		       popMatrix();
 		       
 		       
 		    
@@ -600,24 +599,22 @@ public class Drawer extends PApplet {
 
 //		  armH.draw(9500-moveX, -200);
 		  armH.draw(16000-moveX, -200);
-
-//		  buildings.draw(300+buildingx+moveX, 1270+buildingy-sAlpha*3); 
-//		  buildings.draw(3300+buildingx+moveX, 1270+buildingy-sAlpha*4); 
-//		  buildings.draw(5300+buildingx+moveX, 1270+buildingy-sAlpha*5); 
-
+		  ///buildings////
+     
+		  
 
 //		  squid.draw(leg4+1000+moveX, 600);
 		  
-		  squid.draw(-2500+moveX+leg2, 600);
+		  squid.draw(-5000+moveX+leg2, 600);
 		  
 		  
 //		  buildings.draw(1500+buildingx, 600+buildingy); 
 
 
 //
-//		  buildings.draw(6700+buildingx, 600+buildingy);
-//		  buildings.draw(8700+buildingx, 600+buildingy);
-//		  buildings.draw(10000+buildingx, 600+buildingy);
+//		  buildings.draw(6700+buildingx-moveX*.7f, 1200+buildingy-b1*3);
+//		  buildings.draw(8700+buildingx-moveX*.6f, 1200+buildingy-b1*4);
+//		  buildings.draw(10000+buildingx-moveX*.65f, 1200+buildingy-b1*5);
 		  
 		  
 ///ufodraw
@@ -696,14 +693,14 @@ public class Drawer extends PApplet {
 //		   head1.draw(neckA1[neckA1.length-1].x+1280, neckA1[neckA1.length-1].y+750); 
 
 		//////////////////Spider////////
-		   leftarm.offset1=wormb3;
+		   leftarm.offset1=wormb3*001;
 
 
-		   Smovex+= wormb3*.01 ;
-		   float Sxpos = 300+noise(Smovex) * (width/2);
+		   Smovex+= wormb3*.00001 ;
+		   float Sxpos = ((300+noise(Smovex) * (width/2))+moveX)-3000;
 		   //movey+= Svol*.01 ;
-		   float Sypos = 400-noise(Smovex) * (height/2); 
-		   println(wormb3);
+		   float Sypos = (400-noise(Smovex) * (height/2))-100; 
+		   
 		    
 
 		   leftarm.x= Sxpos;
@@ -711,15 +708,21 @@ public class Drawer extends PApplet {
 
 		   leftarm.display();
 		
-		   Sbody2.setBoneTempo("body2bone1", 0.1f*wormb3); 
+		   Sbody2.setBoneTempo("body2bone1", 0.001f*wormb3); 
 		   Sbody2.setBoneRange("body2bone1",1.3f,2.3f); 
 		   pushMatrix();
 		   scale(2.0f); 
 		   Sbody2.draw(leftarm.x-80,leftarm.y-162); 
 		   popMatrix();
+		     pushMatrix();
+	          scale(1.5f);
+			  buildings.draw(300+buildingx-moveX, 1270+buildingy-b1*7); 
+			  popMatrix();
+			  buildings.draw(3300+buildingx-moveX, 1270+buildingy-b1*5); 
+			  buildings.draw(5300+buildingx-moveX, 1270+buildingy-b1*5); 
 		   
 ///////////////////////////////////
-		   
+//movingbg///		   
 //	       pushMatrix();
 //		      scale(1.5f);
 //		      for (int m = 0; m < 11520; m = m+1200){
@@ -733,7 +736,7 @@ public class Drawer extends PApplet {
 ///globalmove//////
 //FOR LOCAL
 		   
-		   moveX += 2;
+		   moveX += 3.5;
 		   
 		   
 //FOR IAC
@@ -949,7 +952,7 @@ public class Drawer extends PApplet {
 	
 		  
 		  ///////spidertempo////
-			  if (wormb3>0.5) {
+			  if (wormb3*0.001>0.3) {
 
 		       armRight.setBoneTempo("rightbone1", 0.2f);
 		      
