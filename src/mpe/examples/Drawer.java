@@ -16,7 +16,7 @@ public class Drawer extends PApplet {
 	// Set it to 1 for actual size, 0.5 for half size, etc.
 	// This is useful for testing MPE locally and scaling it down to fit to your
 	// screen
-	public static float scale = .5f;
+	public static float scale = 0.4f;
 
 	// if this is true, it will use the MPE library, otherwise just run
 	// stand-alone
@@ -41,6 +41,20 @@ public class Drawer extends PApplet {
 	// ////////////////////////TONY & MEHAN'S CODE///////////////////////
 	// //////////////////////////////////////////////////////////////////
 	// //////////////////////////////////////////////////////////////////
+	 
+	 // moving mouse x to see the camera movement//
+	 
+	 
+	 
+	    int x1 = 1;
+	        int x2 = 1;
+	            int x3 = 1;
+	                int x4 = 1;
+	    float speed=0;
+	     PImage mb1,b2,b3,b4;
+	    //PImage d;
+	    float pan;
+
 
 	public static PImage bg0;
 	public static PImage bg1;
@@ -78,7 +92,7 @@ public class Drawer extends PApplet {
 	
 	float vol;
 //	float i;
-	Neck1[] neckA1 = new Neck1[40];
+	Neck1[] neckA1 = new Neck1[60];
 	float movex2, movey2 ;
 	boolean toggle2x, toggle2y;
 	int t3=0, t4;
@@ -231,6 +245,13 @@ public class Drawer extends PApplet {
 		  bg0 = loadImage("background_1.1.png");
 		  bg1 = loadImage("background_1.1.png");
 		  bg2 = loadImage("background_1.1.png");
+		  /////////movingBg/////
+		  
+	      noStroke();
+	      mb1 = loadImage("background.png");
+	     b2= loadImage("building1.png" );
+	      b3 = loadImage("layer1.png");
+	     b4= loadImage("layer2.png" );
 		  /////////////////////////////////////////DragonWorm///
 		  movex2= mWidth/2+300 ; 
 		  movey2= mHeight/2;
@@ -493,10 +514,10 @@ public class Drawer extends PApplet {
 		  
 		  movex2+= vol*.01 ;
 		  
-		  float xpos2 = noise(movex2) * width+leg2;
+		  float xpos2 = (20000+(noise(movex2) * width+leg2))-moveX;
 		
 		  movey2+= vol*.01 ;
-		  float ypos2 = noise(movey2) * height+leg1-500; 
+		  float ypos2 = noise(movey2) * height+leg1-1000; 
 
 
 
@@ -541,7 +562,38 @@ public class Drawer extends PApplet {
 
 
 		  //***DRAWING ON SCREEN***
-
+		  ///movingbg///////
+		  
+//		   speed= 1200*.009f;
+//
+//		      x1+=speed*.05;
+//		      x1%=1200;
+//		    
+//		          x3+=speed*.1;
+//		          x3%=1200;
+//		          x4+=speed*.2;
+//		          x4%=1200;
+//		      
+//		      
+//		        x2+=speed*.6;
+//		      x2%=1200;
+//		      
+//		     
+//		      
+//		     ////////////////////////
+//		      pushMatrix();
+//		      scale(1.5f);
+//		      for (int m = 0; m < 11520; m = m+1200) { 
+//		        image(b3, x3+m, 520 );
+//		       image(b3.get(b3.width- x3, 0, x3, b3.height ), 0, 520);
+//		   
+//		 
+//		       image(b4, x4+m, 580 );
+//		       image(b4.get(b4.width- x4, 0, x4, b4.height ), 0, 580);}
+//		       popMatrix();
+		       
+		       
+		    
 
 
 		
@@ -549,20 +601,25 @@ public class Drawer extends PApplet {
 //		  armH.draw(9500-moveX, -200);
 		  armH.draw(16000-moveX, -200);
 
-		  buildings.draw(300+buildingx+moveX, 1270+buildingy-sAlpha*3); 
-		  buildings.draw(3300+buildingx+moveX, 1270+buildingy-sAlpha*4); 
-		  buildings.draw(5300+buildingx+moveX, 1270+buildingy-sAlpha*5); 
+//		  buildings.draw(300+buildingx+moveX, 1270+buildingy-sAlpha*3); 
+//		  buildings.draw(3300+buildingx+moveX, 1270+buildingy-sAlpha*4); 
+//		  buildings.draw(5300+buildingx+moveX, 1270+buildingy-sAlpha*5); 
 
 
 //		  squid.draw(leg4+1000+moveX, 600);
+		  
 		  squid.draw(-1000+moveX+leg2, 600);
-		  buildings.draw(1500+buildingx, 600+buildingy); 
+		  
+		  
+//		  buildings.draw(1500+buildingx, 600+buildingy); 
 
 
-
-		  buildings.draw(6700+buildingx, 600+buildingy);
-		  buildings.draw(8700+buildingx, 600+buildingy);
-		  buildings.draw(10000+buildingx, 600+buildingy);
+//
+//		  buildings.draw(6700+buildingx, 600+buildingy);
+//		  buildings.draw(8700+buildingx, 600+buildingy);
+//		  buildings.draw(10000+buildingx, 600+buildingy);
+		  
+		  
 ///ufodraw
 		  ufo.draw(ufoUp+2400, random(-120, -100)+ufoAlpha*2);
 		  ufo.draw(ufoUp+3500, random(-120, -100)+ufoAlpha*2);
@@ -634,38 +691,49 @@ public class Drawer extends PApplet {
 		    head1.setLayerScale("snakeHead", 1.f);
 		   head1.setBoneTempo("body1bone1", 0.07f); 
 		   head1.setBoneRange("body1bone1", 0.3f, 2.5f); 
-		   head1.draw(neckA1[neckA1.length-1].x+200, neckA1[neckA1.length-1].y+100);
+		   head1.draw(neckA1[neckA1.length-1].x+200, neckA1[neckA1.length-1].y+80);
 //		   head1.draw(neckA1[neckA1.length-1].x+mouse, neckA1[neckA1.length-1].y+500);
 //		   head1.draw(neckA1[neckA1.length-1].x+1280, neckA1[neckA1.length-1].y+750); 
 
 		//////////////////Spider////////
-		   leftarm.offset1=Svol;
+		   leftarm.offset1=wormb3;
 
 
-		   Smovex+= Svol*.01 ;
+		   Smovex+= wormb3*.01 ;
 		   float Sxpos = 300+noise(Smovex) * (width/2);
 		   //movey+= Svol*.01 ;
 		   float Sypos = 400-noise(Smovex) * (height/2); 
-		   println(Svol);
+		   println(wormb3);
 		    
 
 		   leftarm.x= Sxpos;
 		   leftarm.y= Sypos;
 
 		   leftarm.display();
-		    
-		   Sbody2.setBoneTempo("body2bone1", 0.1f*Svol); 
+		
+		   Sbody2.setBoneTempo("body2bone1", 0.1f*wormb3); 
 		   Sbody2.setBoneRange("body2bone1",1.3f,2.3f); 
+		   pushMatrix();
+		   scale(2.0f); 
 		   Sbody2.draw(leftarm.x-80,leftarm.y-162); 
+		   popMatrix();
+		   
 ///////////////////////////////////
 		   
+//	       pushMatrix();
+//		      scale(1.5f);
+//		      for (int m = 0; m < 11520; m = m+1200){
+//	       image(b2, x2+m, 530 );
+//	       image(b2.get(b2.width- x2, 0, x2, b2.height ), 0, 530);}
+//	       popMatrix();
+
 
 
 
 ///globalmove//////
 //FOR LOCAL
 		   
-		   moveX += 10;
+		   moveX += 2;
 		   
 		   
 //FOR IAC
@@ -881,7 +949,7 @@ public class Drawer extends PApplet {
 	
 		  
 		  ///////spidertempo////
-			  if (Svol>0.5) {
+			  if (wormb3>0.5) {
 
 		       armRight.setBoneTempo("rightbone1", 0.2f);
 		      
@@ -902,15 +970,14 @@ public class Drawer extends PApplet {
 			  /////spiderArmDraw///
 		  pushMatrix();
 		   // rotate(PI*.02);
-		    scale(0.95f);
+		    scale(2.0f);
 		   armLeft3.draw(x-430,y);
-		   popMatrix(); 
+		    
 		   
-		   pushMatrix();  
-		   // rotate(PI*.02);
-		    scale(0.9f);
+		 
+		    
 		    armLeft2.draw(x-400,y+50);
-		    popMatrix();
+		    
 		    
 		    
 		    //scale(0.85);
@@ -919,6 +986,7 @@ public class Drawer extends PApplet {
 		    armRight3.draw(x-105,y-156);
 		    armRight2.draw(x-65,y-130);  
 		    armRight.draw(x-55,y-100); 
+		    popMatrix();
 		  }
 		}
 		
