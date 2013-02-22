@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<animata version="0.004">
+    <layer name="snakeHead" x="-135.133179" y="-109.533371" z="0.000000" alpha="1.000000" scale="1.000000" vis="1">
+        <texture location="snake.png" x="0.000000" y="0.000000" scale="1.000000" />
+        <mesh>
+            <vertices>
+                <vertex x="265.173492" y="200.340118" u="0.079805" v="0.373485" selected="0" />
+                <vertex x="254.733475" y="468.300110" u="0.074535" v="0.778870" selected="0" />
+                <vertex x="543.573547" y="478.740082" u="0.220340" v="0.794665" selected="0" />
+                <vertex x="534.873535" y="195.120087" u="0.215948" v="0.365588" selected="0" />
+            </vertices>
+            <faces>
+                <face v0="0" v1="1" v2="3" />
+                <face v0="1" v1="2" v2="3" />
+            </faces>
+        </mesh>
+        <skeleton>
+            <joints>
+                <joint x="270.393433" y="356.940063" fixed="0" selected="0" osc="0" />
+                <joint x="536.613403" y="343.020020" fixed="0" selected="0" osc="0" />
+            </joints>
+            <bones>
+                <bone j0="1" j1="0" stiffness="0.500000" lm="1.000000" lmmin="0.010000" lmmax="1.000000" tempo="0.000000" time="1.570796" size="266.583649" selected="1" radius="1.780000">
+                    <attached>
+                        <vertex id="0" d="203.782516" w="0.141098" ca="130.327652" sa="156.658920" />
+                        <vertex id="1" d="190.084534" w="0.198833" ca="154.745255" sa="-110.390373" />
+                        <vertex id="2" d="190.259689" w="0.198094" ca="-133.155563" sa="-135.898285" />
+                        <vertex id="3" d="203.075562" w="0.144078" ca="-139.276962" sa="147.789078" />
+                    </attached>
+                </bone>
+            </bones>
+        </skeleton>
+    </layer>
+</animata>

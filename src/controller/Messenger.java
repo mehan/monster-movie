@@ -19,7 +19,7 @@ public class Messenger extends PApplet {
 	int b1, bA;
 	int wormjx1, wormjy1, wormb1, wormb2, wormb3, wormA;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////?????????
-	int  leg1, leg2, leg3, leg4, sA;
+	int  leg1, leg2, leg3, leg4, sAlpha;
 	
 	int ufoUp, ufoAlpha;
 	
@@ -102,7 +102,7 @@ public class Messenger extends PApplet {
 		background(255);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////?????????
 		String msg = b1+ "," +bA+"," +wormjx1+ "," +wormjy1+ "," +wormb1+ "," +wormb2+ "," +wormb3+ 
-		"," +wormA+ "," +leg1+ "," +leg2+ "," +leg3+ "," +leg4+ "," +sA+ "," +ufoUp+ "," +ufoAlpha+ "," +arm1+ "," +arm2+ "," +arm3+ 
+		"," +wormA+ "," +leg1+ "," +leg2+ "," +leg3+ "," +leg4+ "," +sAlpha+ "," +ufoUp+ "," +ufoAlpha+ "," +arm1+ "," +arm2+ "," +arm3+ 
 		"," +head+ "," +oAlpha;
 		client.broadcast(msg);
 		textFont(font);
@@ -157,8 +157,8 @@ public class Messenger extends PApplet {
 		public void squid4(int squid4) {
 			  leg4 = squid4;
 			}
-		public void squid5(int squid5) {
-			  sA = squid5;
+		public void squidA(int squidA) {
+			  sAlpha = squidA;
 			}
 		// UFO ===================================== 
 		public void ufo1(int ufo1) {

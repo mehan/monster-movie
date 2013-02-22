@@ -16,11 +16,11 @@ public class Drawer extends PApplet {
 	// Set it to 1 for actual size, 0.5 for half size, etc.
 	// This is useful for testing MPE locally and scaling it down to fit to your
 	// screen
-	public static float scale = .3f;
+	public static float scale = .5f;
 
 	// if this is true, it will use the MPE library, otherwise just run
 	// stand-alone
-	public static boolean MPE = false;
+	public static boolean MPE = true;
 	public static boolean local = true;
 
 	// Client ID
@@ -65,6 +65,17 @@ public class Drawer extends PApplet {
 	AnimataP5 neck2 ;
 	AnimataP5 head1 ;
 	
+	AnimataP5 armRight ;
+	AnimataP5 armRight2 ;
+	AnimataP5 armRight3 ;
+	AnimataP5 armLeft ;
+	AnimataP5 armLeft2 ;
+	AnimataP5 armLeft3 ;
+
+	AnimataP5 Sbody1 ;
+	AnimataP5 Sbody2 ;
+	AnimataP5 Sbody3 ;
+	
 	float vol;
 //	float i;
 	Neck1[] neckA1 = new Neck1[40];
@@ -91,7 +102,7 @@ public class Drawer extends PApplet {
 	int leg2;
 	int leg3;
 	int leg4;
-	int sA;
+	int sAlpha = 0;
 
 //buildings
 	int building1, buildingA;
@@ -100,24 +111,30 @@ public class Drawer extends PApplet {
 
 //UFOs
 	int ufoUp;
-	int ufoAlpha;
+	int ufoAlpha = 0;
 
 //octupus + legs
 	int arm1;
 	int arm2;
 	int arm3;
 	int head;
-	int oAlpha;
-
+	int oAlpha = 0;
+/////////////////////dancer/////
 	Centi[] centi = new Centi[26];
 
 	Centitwo[] centitwo = new Centitwo[26];
 
 	float movex, movey ;
+	
 
 	boolean togglex, toggley;
 	int t=0, t2;
-
+	////////////////////////////////////////Spider/////
+	float Smovex , Smovey ;
+	boolean Stogglex, Stoggley;
+	int St=0, St2;
+	Spide leftarm;
+	float Svol;
 
 	// --------------------------------------
 	static public void main(String args[]) {
@@ -214,19 +231,41 @@ public class Drawer extends PApplet {
 		  bg0 = loadImage("background_1.1.png");
 		  bg1 = loadImage("background_1.1.png");
 		  bg2 = loadImage("background_1.1.png");
-		  
-		  movex2= mWidth/3+300 ; 
+		  /////////////////////////////////////////DragonWorm///
+		  movex2= mWidth/2+300 ; 
 		  movey2= mHeight/2;
+		  
+		  
 
-		  neck1 = new AnimataP5(this, "wormNeck.nmt");
+		  neck1 = new AnimataP5(this, "snakeNeck.nmt");
 
-		  head1 = new AnimataP5(this, "wormHead.nmt");
+		  head1 = new AnimataP5(this, "snakeHead.nmt");
 
 
 
 		  for (int i = 0; i < neckA1.length; i ++ ) {   
 		    neckA1[i] = new Neck1();
 		  }  
+		  
+		  
+		  ////////////Spider////////////////////////////
+		  
+		  Smovex= mWidth/3 ; 
+		  Smovey= mHeight/3;
+		  armRight = new AnimataP5(this,"forearm_right4.nmt");
+		  armRight2 = new AnimataP5(this,"forearm_right4.nmt");
+		    armRight3 = new AnimataP5(this,"forearm_right4.nmt");
+		  armLeft= new AnimataP5(this,"forearm_left3.nmt");
+		  armLeft2= new AnimataP5(this,"forearm_left3.nmt");
+		  armLeft3= new AnimataP5(this,"forearm_left3.nmt");
+		  
+
+		   Sbody2 = new AnimataP5(this,"spiderbody1.nmt");
+
+		 
+		   leftarm = new Spide(); 
+	
+		  
 
 
 
@@ -315,7 +354,7 @@ public class Drawer extends PApplet {
 				if (tempx != 0) leg4 = tempx;
 
 				 tempx = parseInt(input[12]);
-				if (tempx != 0) sA = tempx;
+				if (tempx != 0) sAlpha = tempx;
 
 				tempx = parseInt(input[13]);
 				if (tempx != 0) ufoUp = tempx;
@@ -349,7 +388,7 @@ public class Drawer extends PApplet {
 
 		// ///////////////////////////////////////////////
 		// ///////////////////////////////////////////////
-		// /////////////////////DRAW//////////////////////
+		// ///////////////////// //////////////////////
 		// ///////////////////////////////////////////////
 
 
@@ -396,7 +435,7 @@ public class Drawer extends PApplet {
 
           //UFO
 		  ufo.setLayerPos("ufo", 0, 0f); 
-		  ufo.setLayerScale("ufo", 0.5f); 
+		  ufo.setLayerScale("ufo", 0.7f); 
 
 
           //buildings
@@ -404,16 +443,16 @@ public class Drawer extends PApplet {
 		  buildings.setLayerScale("buildings", .7f);
 
 
-  //dancing eyeball
+  //dancer/////////////////////////
 
 		  body2.setBoneTempo("body2bone1", 0.001f*leg1); 
 		  body2.setBoneRange("body2bone1", 1.3f, 2.3f); 
+//dancerXY///
 
-
-		  movex+= vol*.1 ;
-		  float xpos = noise(movex) * mWidth;
-		  movey+= vol*.1 ;
-		  float ypos = noise(movey) * mHeight; 
+		  movex+= leg1*.0001 ;
+		  float xpos = noise(movex) * width;
+		  movey+= leg2*.0001 ;
+		  float ypos = noise(movey) * height+sAlpha*5; 
 		  if (centi[0].x-centi[1].x>0 ) {    
 		    togglex=true;
 		    t=1;
@@ -447,10 +486,17 @@ public class Drawer extends PApplet {
 		  body1.setBoneTempo("body1bone1", 0.07f); 
 		  body1.setBoneRange("body1bone1", 0.3f, 2.5f); 
 		  
-		  movex2+= vol*.1 ;
-		  float xpos2 = noise(movex2) * mouseX*4;
-		  movey2+= vol*.1 ;
-		  float ypos2 = noise(movey2) * mouseY*4; 
+		  
+		  
+		  //////////////////////////snakeXY//////
+		  //////main XY control for snake////
+		  
+		  movex2+= vol*.01 ;
+		  
+		  float xpos2 = noise(movex2) * width+leg2;
+		
+		  movey2+= vol*.01 ;
+		  float ypos2 = noise(movey2) * height+leg1-500; 
 
 
 
@@ -487,8 +533,8 @@ public class Drawer extends PApplet {
 		  } 
 
 
-		  neckA1[0].offsetx= xpos2-10;
-		  neckA1[0].offsety=ypos2-10;
+		  neckA1[0].offsetx= xpos2-8;
+		  neckA1[0].offsety= ypos2-5;
 
 
 
@@ -498,18 +544,18 @@ public class Drawer extends PApplet {
 
 
 
-		  //worm monster
+		
 
 //		  armH.draw(9500-moveX, -200);
 		  armH.draw(16000-moveX, -200);
 
-		  buildings.draw(300+buildingx, 600+buildingy); 
-		  buildings.draw(3300+buildingx, 600+buildingy); 
-		  buildings.draw(5300+buildingx, 600+buildingy); 
+		  buildings.draw(300+buildingx+moveX, 1270+buildingy-sAlpha*3); 
+		  buildings.draw(3300+buildingx+moveX, 1270+buildingy-sAlpha*4); 
+		  buildings.draw(5300+buildingx+moveX, 1270+buildingy-sAlpha*5); 
 
 
 //		  squid.draw(leg4+1000+moveX, 600);
-		  squid.draw(leg4+-1000+moveX, 600);
+		  squid.draw(-1000+moveX+leg2, 600);
 		  buildings.draw(1500+buildingx, 600+buildingy); 
 
 
@@ -517,38 +563,36 @@ public class Drawer extends PApplet {
 		  buildings.draw(6700+buildingx, 600+buildingy);
 		  buildings.draw(8700+buildingx, 600+buildingy);
 		  buildings.draw(10000+buildingx, 600+buildingy);
-
-		  ufo.draw(ufoUp+2400, random(50, 60));
-		  ufo.draw(ufoUp+3500, random(65, 80));
-		  ufo.draw(ufoUp+5000, random(60, 70));
-		  ufo.draw(ufoUp+300, random(50, 60));
-		  ufo.draw(ufoUp+5000, random(50, 60));
-		  ufo.draw(ufoUp+7000, random(65, 80));
-		  ufo.draw(ufoUp+8300, random(50, 60));
-		  ufo.draw(ufoUp+11000, random(60, 70));
-		  ufo.draw(ufoUp+9500, random(50, 60));
+///ufodraw
+		  ufo.draw(ufoUp+2400, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+3500, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+5000, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+300, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+5000, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+7000, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+8300, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+11000, random(-120, -100)+ufoAlpha*2);
+		  ufo.draw(ufoUp+9500, random(-120, -100)+ufoAlpha*2);
 
 
 //		  octu.draw(7700-moveX, 1300);
-		  octu.draw(15000-moveX, 1300);
+		  octu.draw(15000+leg4-moveX, 1300);
 
 
 
 		//draw dancing eyeball
 
-		  body1.draw(centi[centi.length-1].x-80, centi[centi.length-1].y-162); 
-		  body1.draw(centi[centi.length-1].x+5000, centi[centi.length-1].y-162); 
-		  body1.draw(centi[centi.length-1].x+9000, centi[centi.length-1].y-162); 
-
+		  body1.draw(centi[centi.length-1].x-80, centi[centi.length-1].y-162);  
+		  body1.draw(centi[centi.length-1].x+2920, centi[centi.length-1].y-162); 
+		  body1.draw(centi[centi.length-1].x+5920, centi[centi.length-1].y-162);
 
 		  body2.draw(centi[0].x-80, centi[0].y-162);  
-		  body2.draw(centi[0].x+5000, centi[0].y-162);  
-		  body2.draw(centi[0].x+9000, centi[0].y-162);
-
+	      body2.draw(centi[0].x+2920, centi[0].y-162);  
+	      body2.draw(centi[0].x+5920, centi[0].y-162);  
 
 		  body3.draw(centitwo[centitwo.length-1].x+130, centitwo[centitwo.length-1].y-130);
-		  body3.draw(centitwo[centitwo.length-1].x+5130, centitwo[centitwo.length-1].y-130);
-		  body3.draw(centitwo[centitwo.length-1].x+9130, centitwo[centitwo.length-1].y-130);
+	      body3.draw(centitwo[centitwo.length-1].x+3130, centitwo[centitwo.length-1].y-130);
+	      body3.draw(centitwo[centitwo.length-1].x+6130, centitwo[centitwo.length-1].y-130);
 
 		    centi[0].offsetx= xpos;
 		    centi[0].offsety= ypos;
@@ -576,7 +620,7 @@ public class Drawer extends PApplet {
 
 		      centitwo[i].display();
 		    }
-		    
+		    ////////////////////snake
 		    neckA1[0].display();
 
 
@@ -586,25 +630,48 @@ public class Drawer extends PApplet {
 
 		      neckA1[i].display();
 		    }
-
-		    head1.setLayerScale("wormHead", 0.7f);
+//////////////Snakedraw/////////
+		    head1.setLayerScale("snakeHead", 1.f);
 		   head1.setBoneTempo("body1bone1", 0.07f); 
 		   head1.setBoneRange("body1bone1", 0.3f, 2.5f); 
-		   head1.draw(neckA1[neckA1.length-1].x+500, neckA1[neckA1.length-1].y+250);
+		   head1.draw(neckA1[neckA1.length-1].x+200, neckA1[neckA1.length-1].y+100);
 //		   head1.draw(neckA1[neckA1.length-1].x+mouse, neckA1[neckA1.length-1].y+500);
 //		   head1.draw(neckA1[neckA1.length-1].x+1280, neckA1[neckA1.length-1].y+750); 
 
+		//////////////////Spider////////
+		   leftarm.offset1=Svol;
+
+
+		   Smovex+= Svol*.01 ;
+		   float Sxpos = 300+noise(Smovex) * (width/2);
+		   //movey+= Svol*.01 ;
+		   float Sypos = 400-noise(Smovex) * (height/2); 
+		   println(Svol);
+		    
+
+		   leftarm.x= Sxpos;
+		   leftarm.y= Sypos;
+
+		   leftarm.display();
+		    
+		   Sbody2.setBoneTempo("body2bone1", 0.1f*Svol); 
+		   Sbody2.setBoneRange("body2bone1",1.3f,2.3f); 
+		   Sbody2.draw(leftarm.x-80,leftarm.y-162); 
+///////////////////////////////////
+		   
 
 
 
-
+///globalmove//////
 //FOR LOCAL
 		   
-		   moveX += 15;
+		   moveX += 10;
 		   
 		   
 //FOR IAC
 //		    moveX +=3.5;
+		   
+		   
 
 
 	}
@@ -631,28 +698,14 @@ public class Drawer extends PApplet {
 
 		 Centi( ) {
 
-		 //armA = new AnimataP5(this,"core.nmt");  
-		//   offset1=tempOffset1;
-		//   offset2=tempOffset2;
-		//   offsetx=tempOffsetx;
-		//   offsety=tempOffsety;
 
 		      armA.setBoneTempo("arm1bone1", 0.01f); 
 		    armA.setBoneRange("arm1bone1",0.01f,0.1f); 
 		 } 
 
-		//  void xeno() {
-		//    
-		// 
-		//offsetx += (followx - offsetx) * easing ; 
-		//offsety += (followy - offsety) * easing ;
-		//   
-		//  }
 
 		  void display() {
 
-
-		  ///////
 		  if(togglex==true  )  {
 
 		    x += ((offsetx+random(-body2,-body1)) - x) * easing ; 
@@ -675,7 +728,9 @@ public class Drawer extends PApplet {
 		  }
 
 
-		   armA.draw(x-30,y-40); 
+		   armA.draw(x-30,y-40);
+		   armA.draw(x+2970, y-40);
+		   armA.draw(x+5970, y-40);
 		  }
 
 		}
@@ -688,9 +743,9 @@ public class Drawer extends PApplet {
 		  float offsety;
 		  float followx, followy;
 		  //****NEED TO REPLACE leg1 WITH OUR OWN VARIABLE BELOW***
-		  float easing = 0.76f*(1-leg1);
-		  float x=mWidth/2; 
-		  float y=mHeight/2;
+		  float easing = 0.76f*(1-vol);
+		  float x=width/2; 
+		  float y=height/2;
 		  float body1=5;
 		  float body2=7 ; 
 
@@ -727,9 +782,13 @@ public class Drawer extends PApplet {
 
 
 		    armB.draw(x+150, y);
-		    armB.draw(x+630, y);
+		    
+		    armB.draw(x+3150, y);
+		    
+		    armB.draw(x+6150, y);
 		  }
 		}
+	//////////////snakeclass//////////////////
 	class Neck1{
 		 
 		  float offset1, offset2 ;
@@ -737,8 +796,8 @@ public class Drawer extends PApplet {
 		float offsety;
 		float followx, followy;
 		float easing = 0.76f*(1-vol);
-         float x=mWidth/3f; 
-		float y=mHeight/3f;
+         float x=width/2f; 
+		float y=height/2f;
 		//boolean togglex, toggley;
 		//int t=0, t2;
 		float body1=5;
@@ -771,13 +830,97 @@ public class Drawer extends PApplet {
 				       
 				  }
 				  
-				  neck1.setLayerScale("wormNeck", 0.7f);
+				  neck1.setLayerScale("snakeNeck", 1f);
 				  //rect(x-10, y-10, 20 ,20);
-				   neck1.draw(x+300,y+mouseY-10);
+				   neck1.draw(x,y);
 //				   neck1.draw(x+600,y+240);
 //				   neck1.draw(x+900,y+490); //relative position for the neck class
 				  }
 				}
+	/////////spiderclass//////////////
+	class Spide{
+		 
+		  float offset1, offset2 ;
+		  float offsetx;
+		float offsety;
+		float followx, followy;
+		float easing = 0.76f; //*(1-vol);
+		float x=width; 
+		float y=height+500;
+		//boolean togglex, toggley;
+		//int t=0, t2;
+		float Sbody1=5;
+		float Sbody2=7 ; 
+
+
+		 Spide( ) {
+		     
+		 
+		    armRight.setBoneRange("rightbone1",0.85f,1.5f); 
+		        armRight2.setBoneRange("rightbone1",0.85f,1.4f); 
+
+		    armRight3.setBoneRange("rightbone1",0.85f,1.4f); 
+		  
+		   // println(offset1);
+		    armLeft.setBoneRange("leftbone1",0.40f,1.25f); 
+		      armLeft2.setBoneRange("leftbone1",0.40f,1.25f); 
+		       armLeft3.setBoneRange("leftbone1",0.60f,1.25f); 
+		       
+		       
+
+
+		        
+		        
+
+		 } 
+		  
+
+		 
+		  void display() {
+
+	
+		  
+		  ///////spidertempo////
+			  if (Svol>0.5) {
+
+		       armRight.setBoneTempo("rightbone1", 0.2f);
+		      
+		       armRight2.setBoneTempo("rightbone1", 0.3f);
+		       armRight3.setBoneTempo("rightbone1", 0.34f); 
+		       armLeft.setBoneTempo("leftbone1", 0.19f);
+		       armLeft2.setBoneTempo("leftbone1", 0.18f);
+		       armLeft3.setBoneTempo("leftbone1", 0.28f); 
+		  } else{
+		    
+		           armRight.setBoneTempo("rightbone1", 0.01f);
+		       armRight2.setBoneTempo("rightbone1", 0.01f);
+		       armRight3.setBoneTempo("rightbone1", 0.01f); 
+		       armLeft.setBoneTempo("leftbone1", 0.01f);
+		       armLeft2.setBoneTempo("leftbone1", 0.01f);
+		       armLeft3.setBoneTempo("leftbone1", 0.01f); 
+		  }
+			  /////spiderArmDraw///
+		  pushMatrix();
+		   // rotate(PI*.02);
+		    scale(0.95f);
+		   armLeft3.draw(x-430,y);
+		   popMatrix(); 
+		   
+		   pushMatrix();  
+		   // rotate(PI*.02);
+		    scale(0.9f);
+		    armLeft2.draw(x-400,y+50);
+		    popMatrix();
+		    
+		    
+		    //scale(0.85);
+		    armLeft.draw(x-390,y+65);
+		    
+		    armRight3.draw(x-105,y-156);
+		    armRight2.draw(x-65,y-130);  
+		    armRight.draw(x-55,y-100); 
+		  }
+		}
 		
 
 
