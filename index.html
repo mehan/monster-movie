@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Monster-movie by mehan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Monster-movie</h1>
+        <p>An interactive, audio-reactive application used to sync the movement of animated characters to live music.</p>
+
+        <p class="view"><a href="https://github.com/mehan/monster-movie">View the Project on GitHub <small>mehan/monster-movie</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mehan/monster-movie/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mehan/monster-movie/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mehan/monster-movie">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>MONSTER MOVIE</h1>
+
+<p>Monster Movie is an interactive, audio-reactive application built by <a href="https://github.com/tonylim">Tony Lim</a> and <a href="http://mehanjayasuriya.com/">Mehan Jayasuriya</a> and used for the live performance GOEMUL, which took place at the IAC Building in NYC on March 1, 2013. This application uses Processing/Java and MAX/MSP to sync the movement of animated characters to live music. Built as part of <a href="http://www.shiffman.net/">Daniel Shiffman</a>'s 2012 Big Screens class at <a href="http://itp.nyu.edu/itp/">NYU ITP</a>.</p>
+
+<p>The codebase for Monster Movie is built on top of Shiffman's <a href="https://github.com/shiffman/Most-Pixels-Ever">Most Pixels Ever</a> framework. For information on how the MPE sections of this code work, see the excellent <a href="https://github.com/shiffman/Most-Pixels-Ever/wiki">MPE documentation here</a>.</p>
+
+<p>A few notes on how this all works:</p>
+
+<ul>
+<li>This application was designed to be run at a resolution of 11520 x 1080, on a series of screens powered by three seperate machines. It can also be scaled and run locally on one machine, using the "local" and "scale" parameters. To run the application (either locally or on a remote server), you'll need to first run the <a href="https://github.com/shiffman/Most-Pixels-Ever/wiki/Processing-Tutorial">MPE Server application</a>.</li>
+<li>All of the animations were produced using the open-source animation software <a href="http://animata.kibu.hu/">Animata</a>.</li>
+<li>All of the animation files are saved as .nmt files, which are saved in the "data" folder, alongside their associated source images.</li>
+<li>We used the Processing 1.5.1 core, since that is the latest version of Processing that the Animata library for Processing is compatible with.</li>
+<li>We used a MAX patch to simultaneously route commands from two MIDI controllers to Ableton Live and our application, using OSC messages. In theory, the animations in our application could be synced with virtually any live or pre-recorded music by rerouting the OSC messages in the MAX patch.</li>
+<li>To see how we're receiving the OSC messages and then routing them to the machines controlling the various screens, see src&gt;mpe&gt;controller&gt;Messenger.java.</li>
+<li>The bulk of our code is in src&gt;mpe&gt;examples&gt;Drawer.java. This is where we parse the OSC messages recieved and draw elements on the screen.</li>
+</ul><p>More documentation, etc. to come!</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mehan">mehan</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
