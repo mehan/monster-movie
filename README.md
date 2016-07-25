@@ -1,6 +1,6 @@
 #MONSTER MOVIE#
 
-Monster Movie is an interactive, audio-reactive application built by [Tony Lim](https://github.com/tonylim) and [Mehan Jayasuriya](http://mehanjayasuriya.com/) and used for the live performance GOEMUL, which took place at the IAC Building in NYC on March 1, 2013. [Click here to watch a video of the performance](http://goemul.mehanjayasuriya.com/).
+Monster Movie is an interactive, audio-reactive application built by [Tony Lim](https://github.com/tonylim) and [Mehan Jayasuriya](http://mehanjayasuriya.com/) and used for the live performance GOEMUL, which took place at the IAC Building in NYC on March 1, 2013. [Click here to watch a video of the performance](https://vimeo.com/63214239).
 
 This application uses Processing/Java and MAX/MSP to sync the movement of animated characters to live music. Built as part of [Daniel Shiffman](http://www.shiffman.net/)'s 2012 Big Screens class at [NYU ITP](http://itp.nyu.edu/itp/).
 
